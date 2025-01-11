@@ -1,8 +1,20 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "deep-translator",
+#     "polib",
+#     "tqdm",
+#     "tqdmdeep-translator",
+# ]
+# ///
+
 import polib
 from deep_translator import GoogleTranslator
 import argparse
 from tqdm import tqdm
 import time
+from typing import Literal
 
 def translate_po_file(input_file, output_file):
     """
@@ -43,6 +55,7 @@ def translate_po_file(input_file, output_file):
     print(f"\nAbout to save file as: {output_file}")
     po.save(output_file)
     print(f"\nTranslation completed. Output saved to: {output_file}")
+
 
 def main() -> Literal[1] | Literal[0]:
     # Set up argument parser
